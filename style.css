@@ -33,3 +33,12 @@ h1 {
 .social-links a:hover {
     color: #005bb5;
 }
+.profile-pic {
+    width: 200px; /* Adjust size as needed */
+    height: 200px;
+    border-radius: 50%; /* Makes it a circle */
+    object-fit: cover; /* Ensures it looks good */
+    display: block;
+    margin: 20px auto;
+    border: 3px solid #333; /* Optional border */
+}
