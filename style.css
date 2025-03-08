@@ -1,1 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
 
+.container {
+    margin-top: 50px;
+}
+
+h1 {
+    color: #333;
+}
+
+.social-links {
+    list-style-type: none;
+    padding: 0;
+}
+
+.social-links li {
+    display: inline;
+    margin: 10px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #0073e6;
+    font-size: 18px;
+}
+
+.social-links a:hover {
+    color: #005bb5;
+}
