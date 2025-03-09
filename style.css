@@ -157,3 +157,8 @@ body {
     max-width: 24px; 
     height: auto;
 }
+@media (max-width: 600px) {
+    .apple-music-logo {
+        width: 20px; /* Slightly smaller for mobile */
+    }
+}
