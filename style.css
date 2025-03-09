@@ -137,3 +137,11 @@ body {
         font-size: 20px; /* Adjust icon size */
     }
 }
+.apple-music-logo {
+    width: 24px;  /* Adjust size */
+    height: auto;
+    vertical-align: middle;  /* Align with text */
+}/* X (formerly Twitter) */
+.social-links a .fa-x-twitter {
+    color: black;
+}
