@@ -15,23 +15,31 @@ h1 {
 }
 
 .social-links {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .social-links li {
-    display: inline;
-    margin: 10px;
+    display: inline-block;
 }
 
 .social-links a {
     text-decoration: none;
-    color: #0073e6;
     font-size: 18px;
+    color: #333;
+    transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-    color: #005bb5;
+    color: #007bff;
+}
+
+.social-links i {
+    margin-right: 8px;
+    font-size: 24px; /* Adjust icon size */
 }
 .profile-pic {
     width: 200px; /* Adjust size as needed */
