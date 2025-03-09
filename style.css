@@ -145,20 +145,3 @@ body {
 .social-links a .fa-x-twitter {
     color: black;
 }
-.apple-music-logo {
-    width: 24px;  /* Adjust size to match other icons */
-    height: auto; 
-    vertical-align: middle;  /* Align with text */
-    margin-right: 8px; /* Add space between icon and text */
-}
-
-/* Optional: Make sure all social icons are the same size */
-.social-links img {
-    max-width: 24px; 
-    height: auto;
-}
-@media (max-width: 600px) {
-    .apple-music-logo {
-        width: 20px; /* Slightly smaller for mobile */
-    }
-}
