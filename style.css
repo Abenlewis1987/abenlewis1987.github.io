@@ -138,8 +138,8 @@ body {
     }
 }
 .apple-music-logo {
-    width: 24px;  /* Adjust size */
-    height: auto;
+    width: 120px;  /* Adjust size */
+    height:120px;
     vertical-align: middle;  /* Align with text */
 }/* X (formerly Twitter) */
 .social-links a .fa-x-twitter {
