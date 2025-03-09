@@ -91,3 +91,49 @@ iframe {
 }
 .social-links a .fa-apple { color: black; }
 .social-links a .fa-globe { color: #007bff; } /* Default website color */
+/* Ensure the container stays inside the screen */
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 10px;
+    max-width: 100%; /* Prevent overflow */
+    overflow: hidden; /* Ensures nothing goes outside the screen */
+}
+
+/* Ensure each item stays inside */
+.social-links li {
+    display: flex;
+}
+
+/* Prevent horizontal scrolling */
+body {
+    overflow-x: hidden; /* Stops the page from scrolling sideways */
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive Fix for Small Screens */
+@media (max-width: 600px) {
+    .social-links {
+        flex-direction: row; /* Keep them in a row */
+        flex-wrap: wrap; /* Allow wrapping */
+        justify-content: center; /* Center icons */
+        width: 100%; /* Fit the screen */
+        padding: 0 10px; /* Prevent pushing off-screen */
+    }
+
+    .social-links a {
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .social-links i {
+        font-size: 20px; /* Adjust icon size */
+    }
+}
