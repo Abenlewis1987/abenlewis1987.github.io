@@ -59,3 +59,35 @@ iframe {
     max-width: 100%;
     border-radius: 10px;
 }
+/* General Social Links Styling */
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links a {
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Individual Social Media Colors */
+.social-links a .fa-youtube { color: red; }
+.social-links a .fa-twitter { color: #1DA1F2; } /* Twitter Blue */
+.social-links a .fa-instagram {
+    background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.social-links a .fa-apple { color: black; }
+.social-links a .fa-globe { color: #007bff; } /* Default website color */
