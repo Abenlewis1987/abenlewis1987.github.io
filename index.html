@@ -1,50 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me - Aaron Benjamin</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chef Boy A.B. — Aaron Benjamin Lewis</title>
+<meta name="description" content="Aaron Benjamin Lewis — Chef Boy A.B. Chef, music artist, content creator, and future fullstack dev out of LA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#1a1512;
+    --bg-alt:#221b16;
+    --card:#2a211b;
+    --card-hi:#332822;
+    --gold:#e8a93b;
+    --coral:#e8623f;
+    --cream:#f5efe0;
+    --muted:#b3a493;
+    --line:#4a3e33;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    margin:0;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
+
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(26,21,18,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;padding-bottom:16px;
+  }
+  .brand{
+    font-family:'Fraunces',serif;font-weight:900;font-size:1.15rem;
+    letter-spacing:0.02em;
+    display:flex;align-items:center;gap:8px;
+  }
+  .brand .dot{color:var(--coral);}
+  .navlinks{display:flex;gap:28px;font-size:0.92rem;}
+  .navlinks a{
+    text-decoration:none;color:var(--muted);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:color .2s, border-color .2s;
+  }
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--gold);border-color:var(--gold);}
+  .navlinks{}
+  @media (max-width:640px){
+    .navlinks{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:72px 0 40px;
+    position:relative;
+  }
+  .ticket{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:44px 40px;
+    position:relative;
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .ticket::before, .ticket::after{
+    content:"";
+    position:absolute;
+    left:-14px;right:-14px;
+    height:24px;
+    background-image:radial-gradient(circle at 12px 12px, var(--bg) 10px, transparent 11px);
+    background-size:28px 24px;
+    background-repeat:repeat-x;
+  }
+  .ticket::before{top:-12px;}
+  .ticket::after{bottom:-12px;transform:rotate(180deg);}
+  .eyebrow{
+    font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:14px;display:block;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center;
+  }
+  h1.name{font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.05;color:var(--cream);}
+  h1.name em{color:var(--coral);font-style:italic;}
+  .roles{
+    margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;
+  }
+  .role-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.76rem;
+    border:1px dashed var(--line);color:var(--muted);
+    padding:5px 10px;border-radius:999px;
+  }
+  .hero-copy{
+    margin-top:22px;color:var(--muted);font-size:1.02rem;max-width:52ch;
+  }
+  .cta-row{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    font-family:'Inter',sans-serif;font-weight:600;font-size:0.92rem;
+    padding:13px 22px;border-radius:10px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+    border:1px solid transparent;cursor:pointer;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--gold);color:#1a1512;}
+  .btn-primary:hover{box-shadow:0 8px 20px rgba(232,169,59,0.25);}
+  .btn-ghost{border-color:var(--line);color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--coral);color:var(--coral);}
+
+  .hero-photo{
+    border-radius:10px;overflow:hidden;border:1px solid var(--line);
+    aspect-ratio:4/5;background:var(--bg-alt);
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;}
+  @media (max-width:800px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo{order:-1;aspect-ratio:16/9;}
+    .ticket{padding:32px 24px;}
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0;border-top:1px solid var(--line);}
+  .section-head{margin-bottom:34px;max-width:60ch;}
+  .section-head .eyebrow{margin-bottom:8px;}
+  .section-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);}
+  .section-head p{color:var(--muted);margin-top:10px;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- MENU ---------- */
+  .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  @media (max-width:700px){.menu-grid{grid-template-columns:1fr;}}
+  .menu-item{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 26px 22px;
+    transition:border-color .2s, transform .2s;
+  }
+  .menu-item:hover{border-color:var(--gold);transform:translateY(-3px);}
+  .menu-item .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .menu-item h3{font-size:1.2rem;color:var(--cream);}
+  .menu-item .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--coral);
+    white-space:nowrap;
+  }
+  .leader{
+    flex:1;border-bottom:1px dotted var(--line);margin:0 8px;transform:translateY(-4px);
+  }
+  .menu-item p{color:var(--muted);font-size:0.94rem;margin-top:10px;}
+  .menu-item .go{
+    display:inline-block;margin-top:14px;font-size:0.85rem;color:var(--gold);text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .menu-item .go:hover{border-color:var(--gold);}
+
+  /* ---------- REEL ---------- */
+  .reel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  @media (max-width:800px){.reel-grid{grid-template-columns:1fr;}}
+  .reel-item{
+    border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+    background:var(--bg-alt);
+  }
+  .reel-item .frame{aspect-ratio:16/9;}
+  .reel-item iframe{width:100%;height:100%;border:0;display:block;}
+
+  /* ---------- RECEIPT / STATS ---------- */
+  .receipt{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    max-width:480px;padding:34px 34px 24px;
+  }
+  .receipt-title{font-family:'IBM Plex Mono',monospace;text-align:center;color:var(--muted);
+    font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;}
+  .receipt-line{
+    display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;
+    font-size:0.9rem;padding:9px 0;border-bottom:1px dotted var(--line);color:var(--cream);
+  }
+  .receipt-line span:last-child{color:var(--gold);}
+  .receipt-total{
+    display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;
+    font-size:1rem;padding-top:16px;margin-top:6px;color:var(--cream);font-weight:600;
+  }
+  .receipt-total span:last-child{color:var(--coral);}
+  .receipt-note{color:var(--muted);font-size:0.82rem;margin-top:16px;}
+
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  @media (max-width:800px){.work-grid{grid-template-columns:1fr;}}
+  .work-copy p{color:var(--muted);margin-top:14px;}
+  .work-copy .btn{margin-top:22px;}
+
+  /* ---------- VIP LIST ---------- */
+  .vip{
+    background:linear-gradient(135deg, var(--card-hi), var(--card));
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:40px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between;
+  }
+  .vip h2{font-size:1.6rem;max-width:22ch;}
+  .vip p{color:var(--muted);margin-top:8px;max-width:40ch;}
+  form.signup{display:flex;gap:10px;flex-wrap:wrap;}
+  form.signup input[type=email]{
+    background:var(--bg);border:1px solid var(--line);color:var(--cream);
+    padding:13px 16px;border-radius:10px;font-family:'Inter',sans-serif;font-size:0.92rem;
+    min-width:230px;
+  }
+  form.signup input[type=email]:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  form.signup button{font-family:inherit;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:48px 0 60px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
+  .social-row{display:flex;gap:18px;flex-wrap:wrap;}
+  .social-row a{
+    text-decoration:none;color:var(--muted);font-size:0.9rem;
+    border-bottom:1px solid transparent;
+  }
+  .social-row a:hover{color:var(--gold);border-color:var(--gold);}
+  .footer-note{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--muted);}
+
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Aaron Benjamin</h1>
-        
-        <!-- Add Your Profile Picture -->
-        <img src="Downtow Los Angeles-23.jpg" alt="Aaron Benjamin at Venice Beach wearing a bucket hat with a blue jacket on" class="profile-pic">
-        <h2>About Me</h2>
-        <p>Welcome to my personal website! Thank you for taking a look at what we have to offer. It may not look like much, but I'm proud about it because I built it and I'm still building it myself 😎😎😎!! My name is Aaron Benjamin Lewis (CHEF BOY A.B.). I'm an entrepreneur, content creator, music artist, Chef (with the Best Peach Cobbler in the State of California), photographer, Videographer, audio engineer, son of a preacher a GOD in human flesh and much more. I'm currently learning software development to become a fullstack developer. Follow my progress as i navigate through the ups and downs in the world of tech. Drop your email in the email box for future events, Merch, Music & blog post and also follow me on all social platforms & check out my music through the hyperlinks at the bottom of the page.</p>
-         <h2>My Latest Videos</h2>
 
-        <!-- YouTube Video Embeds -->
-        <div class="video-container">
-       <iframe width="560" height="315" src="https://www.youtube.com/embed/TE52mxbXUCs?si=J9G9PdsY6kUzzkXUrel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/pxKAuCy-btQ?si=JqD0Fu35HV3lD-Uvrel=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/4YQQme4vgYo?si=Ms2fXUIhCHQVdJdm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-
-        <h2>Follow Me</h2>
-        <ul class="social-links">
-            <li><a href="https://www.instagram.com/chefboyab600/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
-            <li><a href="https://www.youtube.com/@chefboyab" target="_blank"><i class="fab fa-youtube"><i/> YouTube</a></li>
-            <li><a href="https://twitter.com/chefboyab" target="_blank"><i class="fab fa-x-"></i> x</a></li>
-            <li><a href="https://music.apple.com/us/artist/chef-boy-ab/939100399" target="_blank"></i> Apple Music</a></li>
-        </ul>
-        <footer class="bg-dark text-white text-center py-3">
-            <section class="email-signup">
-    <h3>Join My VIP List</h3>
-    <p>Get exclusive updates on music, merch, and more.</p>
-    <form id="emailForm">
-        <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        <button type="submit">Subscribe</button>
-    </form>
-    <p id="responseMessage"></p>
-</section>
-    <p>&copy; 2025 Aaron Benjamin. All rights reserved.</p>
-</footer>
+<nav>
+  <div class="wrap">
+    <div class="brand">CHEF BOY A.B.<span class="dot">.</span></div>
+    <div class="navlinks">
+      <a href="#menu">The Menu</a>
+      <a href="#reel">Latest Reel</a>
+      <a href="#work-with-me">Work With Me</a>
+      <a href="#vip">Join the List</a>
     </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="ticket">
+      <span class="eyebrow">Los Angeles, CA &nbsp;·&nbsp; Order #001</span>
+      <div class="hero-grid">
+        <div>
+          <h1 class="name">Aaron Benjamin Lewis, <em>a.k.a. Chef Boy A.B.</em></h1>
+          <div class="roles">
+            <span class="role-tag">Chef</span>
+            <span class="role-tag">Music Artist</span>
+            <span class="role-tag">Content Creator</span>
+            <span class="role-tag">Photographer</span>
+            <span class="role-tag">Videographer</span>
+            <span class="role-tag">Audio Engineer</span>
+            <span class="role-tag">Future Fullstack Dev</span>
+          </div>
+          <p class="hero-copy">Best peach cobbler in the state of California, and a few other things going on besides. I build in public — food, music, video, and now code — and I'm just getting started.</p>
+          <div class="cta-row">
+            <a href="#vip" class="btn btn-primary">Join the VIP list</a>
+            <a href="#work-with-me" class="btn btn-ghost">Work with me</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="https://abenlewis1987.github.io/Downtow Los Angeles-23.jpg" alt="Aaron Benjamin at Venice Beach, wearing a bucket hat and blue jacket">
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Menu</span>
+      <h2>Four lanes, one kitchen</h2>
+      <p>Everything I make, in one place. Pick a lane or follow all four.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-item reveal">
+        <div class="row"><h3>Food</h3><div class="leader"></div><span class="tag">CHEF BOY A.B.</span></div>
+        <p>Recipes, cook-ups, and the peach cobbler that started it all. New dishes dropping on video regularly.</p>
+        <a class="go" href="#reel">Watch the cook-ups →</a>
+      </div>
+      <div class="menu-item reveal">
+        <div class="row"><h3>Music</h3><div class="leader"></div><span class="tag">STREAMING NOW</span></div>
+        <p>Original tracks and releases, produced and engineered start to finish.</p>
+        <a class="go" href="https://music.apple.com/us/artist/chef-boy-ab/939100399" target="_blank" rel="noopener">Listen on Apple Music →</a>
+      </div>
+      <div class="menu-item reveal">
+        <div class="row"><h3>Content</h3><div class="leader"></div><span class="tag">DAILY-ISH</span></div>
+        <p>Behind-the-scenes, vlogs, and the day-to-day of building four things at once.</p>
+        <a class="go" href="https://www.youtube.com/@chefboyab" target="_blank" rel="noopener">Subscribe on YouTube →</a>
+      </div>
+      <div class="menu-item reveal">
+        <div class="row"><h3>The Dev Journey</h3><div class="leader"></div><span class="tag">IN PROGRESS</span></div>
+        <p>Learning fullstack development in public — the wins, the bugs, and everything between.</p>
+        <a class="go" href="#vip">Follow the progress →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reel">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Latest Reel</span>
+      <h2>Straight from the kitchen and the studio</h2>
+    </div>
+    <div class="reel-grid">
+      <div class="reel-item reveal">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/TE52mxbXUCs" title="Latest video" loading="lazy" allowfullscreen></iframe></div>
+      </div>
+      <div class="reel-item reveal">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/pxKAuCy-btQ" title="Latest video" loading="lazy" allowfullscreen></iframe></div>
+      </div>
+      <div class="reel-item reveal">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/4YQQme4vgYo" title="Latest video" loading="lazy" allowfullscreen></iframe></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="work-with-me">
+  <div class="wrap">
+    <div class="work-grid">
+      <div class="reveal">
+        <span class="eyebrow">Work With Me</span>
+        <h2>Reach that shows up itemized</h2>
+        <div class="work-copy">
+          <p>I partner with brands across food, music, and lifestyle for sponsored content, recipe collabs, and product placement — on video, in the feed, and in the inbox.</p>
+          <p>Want the full breakdown — audience, engagement, past collabs, and rates? I'll send over a one-pager.</p>
+          <a class="btn btn-primary" href="mailto:hello@chefboyab.com?subject=Let's%20work%20together">Request my media kit</a>
+        </div>
+      </div>
+      <div class="receipt reveal">
+        <div class="receipt-title">— Reach Receipt —</div>
+        <div class="receipt-line"><span>Instagram followers</span><span>[ADD COUNT]</span></div>
+        <div class="receipt-line"><span>YouTube subscribers</span><span>[ADD COUNT]</span></div>
+        <div class="receipt-line"><span>Monthly video views</span><span>[ADD COUNT]</span></div>
+        <div class="receipt-line"><span>Email list</span><span>[ADD COUNT]</span></div>
+        <div class="receipt-total"><span>Total reach</span><span>[ADD TOTAL]</span></div>
+        <p class="receipt-note">Swap in your real numbers here — this block is what brands screenshot first.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vip">
+  <div class="wrap">
+    <div class="vip reveal">
+      <div>
+        <h2>Join the VIP list</h2>
+        <p>New music, new merch, new recipes, and the dev journey — straight to your inbox, before anywhere else.</p>
+      </div>
+      <form class="signup" action="#" method="post">
+        <label for="email" class="visually-hidden" style="position:absolute;left:-9999px;">Email address</label>
+        <input id="email" type="email" name="email" placeholder="you@email.com" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="social-row">
+      <a href="https://www.instagram.com/chefboyab600/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@chefboyab" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://twitter.com/chefboyab" target="_blank" rel="noopener">X</a>
+      <a href="https://music.apple.com/us/artist/chef-boy-ab/939100399" target="_blank" rel="noopener">Apple Music</a>
+    </div>
+    <div class="footer-note">© 2026 Aaron Benjamin Lewis — Chef Boy A.B. · Thanks for stopping by.</div>
+  </div>
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  items.forEach(i=>io.observe(i));
+</script>
+
 </body>
 </html>
+redesign hompage
