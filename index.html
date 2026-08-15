@@ -10,18 +10,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-  --bg:#0d0d0d;
-  --bg-alt:#141414;
-  --card:#1a1a1a;
-  --card-hi:#212121;
-  --gold:#e0332f;
-  --coral:#a11d1d;
-  --cream:#f2f2f2;
-  --muted:#9c9c9c;
-  --line:#2c2c2c;
-  --radius:14px;
-}
-
+    --bg:#0d0d0d;
+    --bg-alt:#141414;
+    --card:#1a1a1a;
+    --card-hi:#212121;
+    --gold:#e0332f;
+    --coral:#a11d1d;
+    --cream:#f2f2f2;
+    --muted:#9c9c9c;
+    --line:#2c2c2c;
+    --radius:14px;
+  }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -72,9 +71,20 @@
     transition:color .2s, border-color .2s;
   }
   .navlinks a:hover, .navlinks a:focus-visible{color:var(--gold);border-color:var(--gold);}
-  .navlinks{}
+  .nav-toggle{
+    display:none;background:none;border:1px solid var(--line);border-radius:8px;
+    padding:8px 10px;color:var(--cream);font-size:1.1rem;cursor:pointer;
+  }
   @media (max-width:640px){
-    .navlinks{display:none;}
+    .navlinks{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;gap:0;background:var(--bg-alt);
+      border-bottom:1px solid var(--line);padding:8px 24px;
+    }
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:14px 0;border-bottom:1px solid var(--line);}
+    .navlinks a:last-child{border-bottom:none;}
+    .nav-toggle{display:inline-block;}
   }
 
   /* ---------- HERO ---------- */
@@ -139,8 +149,7 @@
     border-radius:10px;overflow:hidden;border:1px solid var(--line);
     aspect-ratio:4/5;background:var(--bg-alt);
   }
-  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:top;}
-
+  .hero-photo img{width:100%;height:100%;object-fit:cover;}
   @media (max-width:800px){
     .hero-grid{grid-template-columns:1fr;}
     .hero-photo{order:-1;aspect-ratio:16/9;}
@@ -249,19 +258,24 @@
 </head>
 <body>
 
-<div class="navlinks">
-  <a href="#menu">The Menu</a>
-  <a href="/order.html">Order</a>
-  <a href="#reel">Latest Reel</a>
-  <a href="#work-with-me">Work With Me</a>
-  <a href="#vip">Join the List</a>
-</div>
-
+<nav>
+  <div class="wrap">
+    <div class="brand">CHEF BOY A.B.<span class="dot">.</span></div>
+    <div class="navlinks" id="navlinks">
+      <a href="#menu">The Menu</a>
+      <a href="/order.html">Order</a>
+      <a href="#reel">Latest Reel</a>
+      <a href="#work-with-me">Work With Me</a>
+      <a href="#vip">Join the List</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+</nav>
 
 <header class="hero">
   <div class="wrap">
     <div class="ticket">
-      <span class="eyebrow">Oakland, CA &nbsp;&nbsp; </span>
+      <span class="eyebrow">Los Angeles, CA &nbsp;·&nbsp; Order #001</span>
       <div class="hero-grid">
         <div>
           <h1 class="name">Aaron Benjamin Lewis, <em>a.k.a. Chef Boy A.B.</em></h1>
@@ -281,9 +295,7 @@
           </div>
         </div>
         <div class="hero-photo">
-          <img src="https://abenlewis1987.github.io/B0A3E610-3E5E-48AB-B90D-7FAF3F8DE755.jpeg" alt="Chef Boy A.B. — Phantom Zone">
-
-
+          <img src="https://abenlewis1987.github.io/Downtow Los Angeles-23.jpg" alt="Aaron Benjamin at Venice Beach, wearing a bucket hat and blue jacket">
         </div>
       </div>
     </div>
@@ -374,15 +386,11 @@
         <h2>Join the VIP list</h2>
         <p>New music, new merch, new recipes, and the dev journey — straight to your inbox, before anywhere else.</p>
       </div>
-      <form class="signup" action="https://abenja.us22.list-manage.com/subscribe/post?u=569ebfc2c406a32b6df78f9c9&id=e787b5154c&f_id=0058c2e1f0" method="post" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-  <label for="email" class="visually-hidden" style="position:absolute;left:-9999px;">Email address</label>
-  <input id="email" type="email" name="EMAIL" placeholder="you@email.com" required>
-  <div aria-hidden="true" style="position:absolute;left:-5000px;">
-    <input type="text" name="b_569ebfc2c406a32b6df78f9c9_e787b5154c" tabindex="-1" value="">
-  </div>
-  <button type="submit" name="subscribe" class="btn btn-primary">Subscribe</button>
-</form>
-
+      <form class="signup" action="#" method="post">
+        <label for="email" class="visually-hidden" style="position:absolute;left:-9999px;">Email address</label>
+        <input id="email" type="email" name="email" placeholder="you@email.com" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
     </div>
   </div>
 </section>
@@ -405,6 +413,21 @@
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.15});
   items.forEach(i=>io.observe(i));
+
+  const navToggle = document.getElementById('navToggle');
+  const navlinks = document.getElementById('navlinks');
+  navToggle.addEventListener('click', ()=>{
+    const isOpen = navlinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+    navToggle.textContent = isOpen ? '✕' : '☰';
+  });
+  navlinks.querySelectorAll('a').forEach(link=>{
+    link.addEventListener('click', ()=>{
+      navlinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.textContent = '☰';
+    });
+  });
 </script>
 
 </body>
