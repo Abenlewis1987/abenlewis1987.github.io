@@ -200,7 +200,16 @@
   }
   .reel-item .frame{aspect-ratio:16/9;}
   .reel-item iframe{width:100%;height:100%;border:0;display:block;}
-  .tiktok-embed-wrap{display:flex;justify-content:center;}
+  .tiktok-embed-wrap{
+    display:flex;flex-direction:column;align-items:center;gap:20px;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;max-width:346px;margin:0 auto;
+  }
+  .tiktok-embed-wrap blockquote.tiktok-embed{
+    background:transparent !important;border:none !important;margin:0 !important;
+    color:var(--muted);max-width:100% !important;min-width:0 !important;
+  }
+  .tiktok-follow-note{color:var(--muted);font-size:0.9rem;text-align:center;}
 
   /* ---------- RECEIPT / STATS ---------- */
   .receipt{
@@ -319,6 +328,10 @@
           <a target="_blank" title="♬ original sound - Mr Benjamins" href="https://www.tiktok.com/music/original-sound-7476255862936734494?refer=embed">♬ original sound - Mr Benjamins</a>
         </section>
       </blockquote>
+      <div>
+        <p class="tiktok-follow-note">Want more recipes like this?</p>
+        <a class="btn btn-primary" href="https://www.tiktok.com/@chefboyab" target="_blank" rel="noopener" style="margin-top:10px;">🍑 Follow @chefboyab on TikTok</a>
+      </div>
     </div>
   </div>
 </section>
