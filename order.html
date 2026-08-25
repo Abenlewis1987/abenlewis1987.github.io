@@ -40,6 +40,18 @@
   h1{font-size:clamp(2rem,5vw,2.8rem);color:var(--cream);}
   header p{color:var(--muted);max-width:52ch;margin-top:14px;font-size:1.02rem;}
 
+  .drop-banner{
+    background:#2a0f0e;border:1px solid var(--gold);border-radius:var(--radius);
+    padding:18px 24px;margin-bottom:36px;text-align:center;
+  }
+  .drop-label{
+    color:var(--gold);font-family:'IBM Plex Mono',monospace;font-size:0.72rem;
+    letter-spacing:2px;text-transform:uppercase;font-weight:600;display:block;margin-bottom:10px;
+  }
+  .drop-schedule{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;}
+  .drop-schedule span{font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--cream);}
+  .drop-schedule strong{color:var(--gold);}
+
   section{padding:36px 0;border-top:1px solid var(--line);}
   h2{font-size:1.3rem;margin-bottom:18px;}
 
@@ -103,8 +115,19 @@
 <header class="wrap">
   <span class="eyebrow">Order</span>
   <h1>Peach cobbler & hot plates</h1>
-  <p>Fresh, made to order, out of Oakland, CA. Fill out the order form below, then send payment to confirm — I'll follow up directly with pickup or delivery details.</p>
+  <p>Fresh, made to order, out of Oakland, CA.</p>
 </header>
+
+<div class="wrap">
+  <div class="drop-banner">
+    <span class="drop-label">This Week's Drop</span>
+    <div class="drop-schedule">
+      <span>Orders open <strong>Monday</strong></span>
+      <span>Orders close <strong>Thursday</strong></span>
+      <span>Pickup / Delivery <strong>Saturday</strong></span>
+    </div>
+  </div>
+</div>
 
 <section class="wrap">
   <h2>The Menu</h2>
@@ -154,18 +177,18 @@
   <div class="steps">
     <div class="step">
       <div class="step-num"></div>
-      <p><strong>Fill out the order form</strong> below with what you want and your pickup/delivery preference.</p>
+      <p><strong>Order before Thursday</strong> to make this week's drop — tap "Buy Now" on what you want above.</p>
     </div>
     <div class="step">
       <div class="step-num"></div>
-      <p><strong>Send payment</strong> to confirm your order — Venmo <a href="https://venmo.com/chefboyab" target="_blank" rel="noopener">@chefboyab</a>.</p>
+      <p><strong>Check out securely</strong> — card accepted, no account needed.</p>
     </div>
     <div class="step">
       <div class="step-num"></div>
-      <p><strong>I'll follow up</strong> to confirm your pickup/delivery time.</p>
+      <p><strong>Pick up or get delivery</strong> this Saturday. I'll follow up to confirm details.</p>
     </div>
   </div>
-  <p style="color:var(--muted);font-size:0.9rem;margin-top:22px;">Orders confirmed within 24 hours of payment.</p>
+  <p style="color:var(--muted);font-size:0.9rem;margin-top:22px;">Missed this week's drop? Your order rolls into next week's — Monday through Thursday.</p>
 </section>
 
 <section class="wrap">
