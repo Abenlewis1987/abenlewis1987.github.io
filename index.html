@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Order — Chef Boy A.B.</title>
-<meta name="description" content="Order peach cobbler and hot plates from Chef Boy A.B. — Oakland, CA.">
+<title>Chef Boy A.B. — Aaron Benjamin Lewis</title>
+<meta name="description" content="Aaron Benjamin Lewis — Chef Boy A.B. Chef, music artist, content creator, and future fullstack dev out of LA.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -22,167 +22,446 @@
     --radius:14px;
   }
   *{box-sizing:border-box;}
-  body{margin:0;background:var(--bg);color:var(--cream);font-family:'Inter',sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;}
-  h1,h2,h3{font-family:'Fraunces',serif;font-weight:700;margin:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    margin:0;
+  }
   .mono{font-family:'IBM Plex Mono',monospace;}
   a{color:inherit;}
-  .wrap{max-width:840px;margin:0 auto;padding:0 24px;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
 
-  nav{position:sticky;top:0;z-index:50;background:rgba(26,21,18,0.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
-  .brand{font-family:'Fraunces',serif;font-weight:900;font-size:1.1rem;}
-  .brand a{text-decoration:none;color:var(--cream);}
-  .back{font-size:0.85rem;color:var(--muted);text-decoration:none;border-bottom:1px solid transparent;}
-  .back:hover{color:var(--gold);border-color:var(--gold);}
-
-  header{padding:52px 0 24px;}
-  .eyebrow{font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:block;}
-  h1{font-size:clamp(2rem,5vw,2.8rem);color:var(--cream);}
-  header p{color:var(--muted);max-width:52ch;margin-top:14px;font-size:1.02rem;}
-
-  section{padding:36px 0;border-top:1px solid var(--line);}
-  h2{font-size:1.3rem;margin-bottom:18px;}
-
-  .menu-list{display:flex;flex-direction:column;gap:14px;}
-  .menu-row{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:18px 20px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
   }
-  .menu-row .item h3{font-size:1.05rem;color:var(--cream);}
-  .menu-row .item p{margin:4px 0 0;color:var(--muted);font-size:0.9rem;}
-  .menu-row .price{font-family:'IBM Plex Mono',monospace;color:var(--gold);white-space:nowrap;font-size:1rem;}
-  .menu-row .price-col{display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
-  .buy-btn{
-    font-family:'Inter',sans-serif;font-weight:600;font-size:0.78rem;
-    background:var(--gold);color:#0d0d0d;text-decoration:none;
-    padding:7px 14px;border-radius:8px;white-space:nowrap;
-  }
-  .buy-btn:hover{opacity:0.9;}
 
-  .steps{counter-reset:step;display:flex;flex-direction:column;gap:16px;}
-  .step{display:flex;gap:14px;align-items:flex-start;}
-  .step-num{
-    counter-increment:step;flex-shrink:0;width:30px;height:30px;border-radius:50%;
-    background:var(--card-hi);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
-    font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--gold);
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(26,21,18,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
   }
-  .step-num::before{content:counter(step);}
-  .step p{margin:0;color:var(--muted);padding-top:4px;}
-  .step strong{color:var(--cream);}
-
-  .form-embed{
-    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
-    padding:28px;text-align:center;color:var(--muted);
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    padding-top:16px;padding-bottom:16px;
   }
-  .form-embed iframe{width:100%;border:0;border-radius:10px;min-height:600px;background:#fff;}
+  .brand{
+    font-family:'Fraunces',serif;font-weight:900;font-size:1.15rem;
+    letter-spacing:0.02em;
+    display:flex;align-items:center;gap:8px;
+  }
+  .brand .dot{color:var(--coral);}
+  .navlinks{display:flex;gap:28px;font-size:0.92rem;}
+  .navlinks a{
+    text-decoration:none;color:var(--muted);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:color .2s, border-color .2s;
+  }
+  .navlinks a:hover, .navlinks a:focus-visible{color:var(--gold);border-color:var(--gold);}
+  .nav-toggle{
+    display:none;background:none;border:1px solid var(--line);border-radius:8px;
+    padding:8px 10px;color:var(--cream);font-size:1.1rem;cursor:pointer;
+  }
+  @media (max-width:640px){
+    .navlinks{
+      display:none;position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;gap:0;background:var(--bg-alt);
+      border-bottom:1px solid var(--line);padding:8px 24px;
+    }
+    .navlinks.open{display:flex;}
+    .navlinks a{padding:14px 0;border-bottom:1px solid var(--line);}
+    .navlinks a:last-child{border-bottom:none;}
+    .nav-toggle{display:inline-block;}
+  }
 
+  /* ---------- HERO ---------- */
+  header.hero{
+    padding:72px 0 40px;
+    position:relative;
+  }
+  .ticket{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:44px 40px;
+    position:relative;
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .ticket::before, .ticket::after{
+    content:"";
+    position:absolute;
+    left:-14px;right:-14px;
+    height:24px;
+    background-image:radial-gradient(circle at 12px 12px, var(--bg) 10px, transparent 11px);
+    background-size:28px 24px;
+    background-repeat:repeat-x;
+  }
+  .ticket::before{top:-12px;}
+  .ticket::after{bottom:-12px;transform:rotate(180deg);}
+  .eyebrow{
+    font-size:0.78rem;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:14px;display:block;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center;
+  }
+  h1.name{font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.05;color:var(--cream);}
+  h1.name em{color:var(--coral);font-style:italic;}
+  .roles{
+    margin-top:18px;display:flex;flex-wrap:wrap;gap:8px;
+  }
+  .role-tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.76rem;
+    border:1px dashed var(--line);color:var(--muted);
+    padding:5px 10px;border-radius:999px;
+  }
+  .hero-copy{
+    margin-top:22px;color:var(--muted);font-size:1.02rem;max-width:52ch;
+  }
+  .cta-row{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap;}
   .btn{
-    font-weight:600;font-size:0.92rem;padding:13px 22px;border-radius:10px;text-decoration:none;
-    display:inline-flex;align-items:center;gap:8px;transition:transform .15s ease;border:1px solid transparent;
+    font-family:'Inter',sans-serif;font-weight:600;font-size:0.92rem;
+    padding:13px 22px;border-radius:10px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .15s ease, box-shadow .15s ease;
+    border:1px solid transparent;cursor:pointer;
   }
   .btn:hover{transform:translateY(-2px);}
   .btn-primary{background:var(--gold);color:#1a1512;}
+  .btn-primary:hover{box-shadow:0 8px 20px rgba(232,169,59,0.25);}
   .btn-ghost{border-color:var(--line);color:var(--cream);}
   .btn-ghost:hover{border-color:var(--coral);color:var(--coral);}
 
-  .contact-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px;}
+  .hero-photo{
+    border-radius:10px;overflow:hidden;border:1px solid var(--line);
+    aspect-ratio:4/5;background:var(--bg-alt);
+  }
+  .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 80%;}
+  @media (max-width:800px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo{order:-1;aspect-ratio:16/9;}
+    .ticket{padding:32px 24px;}
+  }
 
-  footer{padding:40px 0 60px;border-top:1px solid var(--line);text-align:center;}
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:64px 0;border-top:1px solid var(--line);}
+  .section-head{margin-bottom:34px;max-width:60ch;}
+  .section-head .eyebrow{margin-bottom:8px;}
+  .section-head h2{font-size:clamp(1.6rem,3.4vw,2.2rem);}
+  .section-head p{color:var(--muted);margin-top:10px;}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- MENU ---------- */
+  .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  @media (max-width:700px){.menu-grid{grid-template-columns:1fr;}}
+  .menu-item{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px 26px 22px;
+    transition:border-color .2s, transform .2s;
+  }
+  .menu-item:hover{border-color:var(--gold);transform:translateY(-3px);}
+  .menu-item .row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .menu-item h3{font-size:1.2rem;color:var(--cream);}
+  .menu-item .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--coral);
+    white-space:nowrap;
+  }
+  .leader{
+    flex:1;border-bottom:1px dotted var(--line);margin:0 8px;transform:translateY(-4px);
+  }
+  .menu-item p{color:var(--muted);font-size:0.94rem;margin-top:10px;}
+  .menu-item .go{
+    display:inline-block;margin-top:14px;font-size:0.85rem;color:var(--gold);text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .menu-item .go:hover{border-color:var(--gold);}
+
+  /* ---------- REEL ---------- */
+  .reel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
+  @media (max-width:800px){.reel-grid{grid-template-columns:1fr;}}
+  .reel-item{
+    border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);
+    background:var(--bg-alt);
+  }
+  .reel-item .frame{aspect-ratio:16/9;}
+  .reel-item iframe{width:100%;height:100%;border:0;display:block;}
+  .tiktok-embed-wrap{
+    display:flex;flex-direction:column;align-items:center;gap:20px;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;max-width:346px;margin:0 auto;
+  }
+  .tiktok-embed-wrap blockquote.tiktok-embed{
+    background:transparent !important;border:none !important;margin:0 !important;
+    color:var(--muted);max-width:100% !important;min-width:0 !important;
+  }
+  .tiktok-follow-note{color:var(--muted);font-size:0.9rem;text-align:center;}
+
+  /* ---------- RECEIPT / STATS ---------- */
+  .receipt{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    max-width:480px;padding:34px 34px 24px;
+  }
+  .receipt-title{font-family:'IBM Plex Mono',monospace;text-align:center;color:var(--muted);
+    font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px;}
+  .receipt-line{
+    display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;
+    font-size:0.9rem;padding:9px 0;border-bottom:1px dotted var(--line);color:var(--cream);
+  }
+  .receipt-line span:last-child{color:var(--gold);}
+  .receipt-total{
+    display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;
+    font-size:1rem;padding-top:16px;margin-top:6px;color:var(--cream);font-weight:600;
+  }
+  .receipt-total span:last-child{color:var(--coral);}
+  .receipt-note{color:var(--muted);font-size:0.82rem;margin-top:16px;}
+
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  @media (max-width:800px){.work-grid{grid-template-columns:1fr;}}
+  .work-copy p{color:var(--muted);margin-top:14px;}
+  .work-copy .btn{margin-top:22px;}
+
+  /* ---------- VIP LIST ---------- */
+  .vip{
+    background:linear-gradient(135deg, var(--card-hi), var(--card));
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:40px;display:flex;flex-wrap:wrap;gap:26px;align-items:center;justify-content:space-between;
+  }
+  .vip h2{font-size:1.6rem;max-width:22ch;}
+  .vip p{color:var(--muted);margin-top:8px;max-width:40ch;}
+  form.signup{display:flex;gap:10px;flex-wrap:wrap;}
+  form.signup input[type=email]{
+    background:var(--bg);border:1px solid var(--line);color:var(--cream);
+    padding:13px 16px;border-radius:10px;font-family:'Inter',sans-serif;font-size:0.92rem;
+    min-width:230px;
+  }
+  form.signup input[type=email]:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  form.signup button{font-family:inherit;}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:48px 0 60px;border-top:1px solid var(--line);}
+  .footer-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
+  .social-row{display:flex;gap:18px;flex-wrap:wrap;}
+  .social-row a{
+    text-decoration:none;color:var(--muted);font-size:0.9rem;
+    border-bottom:1px solid transparent;
+  }
+  .social-row a:hover{color:var(--gold);border-color:var(--gold);}
   .footer-note{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--muted);}
+
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="wrap">
-    <div class="brand"><a href="/">CHEF BOY A.B.</a></div>
-    <a class="back" href="/">← Back to site</a>
+    <div class="brand">CHEF BOY A.B.<span class="dot">.</span></div>
+    <div class="navlinks" id="navlinks">
+      <a href="#menu">The Menu</a>
+      <a href="/order.html">Order</a>
+      <a href="#reel">Latest Reel</a>
+      <a href="#tiktok">TikTok</a>
+      <a href="#work-with-me">Work With Me</a>
+      <a href="#vip">Cobbler Club</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
   </div>
 </nav>
 
-<header class="wrap">
-  <span class="eyebrow">Order</span>
-  <h1>Peach cobbler & hot plates</h1>
-  <p>Fresh, made to order, out of Oakland, CA. Fill out the order form below, then send payment to confirm — I'll follow up directly with pickup or delivery details.</p>
+<header class="hero">
+  <div class="wrap">
+    <div class="ticket">
+      <span class="eyebrow">Oakland, CA</span>
+      <div class="hero-grid">
+        <div>
+          <h1 class="name">Aaron Benjamin Lewis, <em>a.k.a. Chef Boy A.B.</em></h1>
+          <div class="roles">
+            <span class="role-tag">Chef</span>
+            <span class="role-tag">Music Artist</span>
+            <span class="role-tag">Content Creator</span>
+            <span class="role-tag">Photographer</span>
+            <span class="role-tag">Videographer</span>
+            <span class="role-tag">Audio Engineer</span>
+            <span class="role-tag">Future Fullstack Dev</span>
+          </div>
+          <p class="hero-copy">Best peach cobbler in the state of California, and a few other things going on besides. I build in public — food, music, video, and now code — and I'm just getting started.</p>
+          <div class="cta-row">
+            <a href="/order.html" class="btn btn-primary">🍑 Order Cobbler Now</a>
+            <a href="#vip" class="btn btn-ghost">Join the Cobbler Club</a>
+            <a href="#work-with-me" class="btn btn-ghost">Work with me</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="https://abenlewis1987.github.io/3F9552FB-AE89-43C8-B089-1FF490D40B87.png" alt="Chef Boy A.B. — Handmade Peach Cobbler">
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
 
-<section class="wrap">
-  <h2>The Menu</h2>
-  <div class="menu-list">
-    <div class="menu-row">
-      <div class="item">
-        <h3>Peach Cobbler — 8x8 Pan</h3>
-        <p>Feeds a small group</p>
-      </div>
-      <div class="price-col">
-        <div class="price">$25</div>
-        <a class="buy-btn" href="https://square.link/u/MyG2cdcb" target="_blank" rel="noopener">Buy Now</a>
-      </div>
+<section id="tiktok">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">On TikTok</span>
+      <h2>Recipes, straight from the kitchen</h2>
     </div>
-    <div class="menu-row">
-      <div class="item">
-        <h3>Peach Cobbler — 13x9 Pan</h3>
-        <p>Feeds a crowd</p>
+    <div class="tiktok-embed-wrap reveal">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@chefboyab/video/7476255961695423774" data-video-id="7476255961695423774" style="max-width: 605px;min-width: 325px;" >
+        <section>
+          <a target="_blank" title="@chefboyab" href="https://www.tiktok.com/@chefboyab?refer=embed">@chefboyab</a> Chef Ya Life Up Cobbler
+          <a title="peachcobbler" target="_blank" href="https://www.tiktok.com/tag/peachcobbler?refer=embed">#peachcobbler</a>
+          <a target="_blank" title="♬ original sound - Mr Benjamins" href="https://www.tiktok.com/music/original-sound-7476255862936734494?refer=embed">♬ original sound - Mr Benjamins</a>
+        </section>
+      </blockquote>
+      <div>
+        <p class="tiktok-follow-note">Want more recipes like this?</p>
+        <a class="btn btn-primary" href="https://www.tiktok.com/@chefboyab" target="_blank" rel="noopener" style="margin-top:10px;">🍑 Follow @chefboyab on TikTok</a>
       </div>
-      <div class="price-col">
-        <div class="price">$50</div>
-        <a class="buy-btn" href="https://square.link/u/xQcue4Et" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="item">
-        <h3>Peach Cobbler — 8oz Container</h3>
-        <p>Individual size. Online orders: must buy 5 or more</p>
-      </div>
-      <div class="price-col">
-        <div class="price">$5 each</div>
-        <a class="buy-btn" href="https://square.link/u/Zizb0Qrj" target="_blank" rel="noopener">Buy Now</a>
-      </div>
-    </div>
-    <div class="menu-row">
-      <div class="item">
-        <h3>Hot Plates</h3>
-        <p>New menu items coming soon — pricing will be displayed upon arrival of new menu items.</p>
-      </div>
-      <div class="price">Coming soon</div>
     </div>
   </div>
 </section>
 
-<section class="wrap">
-  <h2>How to Order</h2>
-  <div class="steps">
-    <div class="step">
-      <div class="step-num"></div>
-      <p><strong>Fill out the order form</strong> below with what you want and your pickup/delivery preference.</p>
+<section id="menu">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The Menu</span>
+      <h2>Four lanes, one kitchen</h2>
+      <p>Everything I make, in one place. Pick a lane or follow all four.</p>
     </div>
-    <div class="step">
-      <div class="step-num"></div>
-      <p><strong>Send payment</strong> to confirm your order — Venmo <a href="https://venmo.com/chefboyab" target="_blank" rel="noopener">@chefboyab</a>.</p>
-    </div>
-    <div class="step">
-      <div class="step-num"></div>
-      <p><strong>I'll follow up</strong> to confirm your pickup/delivery time.</p>
+    <div class="menu-grid">
+      <div class="menu-item reveal">
+        <div class="row"><h3>Food</h3><div class="leader"></div><span class="tag">CHEF BOY A.B.</span></div>
+        <p>Recipes, cook-ups, and the peach cobbler that started it all. New dishes dropping on video regularly.</p>
+        <a class="go" href="#reel">Watch the cook-ups →</a>
+      </div>
+      <div class="menu-item reveal">
+        <div class="row"><h3>Music</h3><div class="leader"></div><span class="tag">STREAMING NOW</span></div>
+        <p>Original tracks and releases, produced and engineered start to finish.</p>
+        <a class="go" href="https://music.apple.com/us/artist/chef-boy-ab/939100399" target="_blank" rel="noopener">Listen on Apple Music →</a>
+      </div>
+      <div class="menu-item reveal">
+        <div class="row"><h3>Content</h3><div class="leader"></div><span class="tag">DAILY-ISH</span></div>
+        <p>Behind-the-scenes, vlogs, and the day-to-day of building four things at once.</p>
+        <a class="go" href="https://www.youtube.com/@chefboyab" target="_blank" rel="noopener">Subscribe on YouTube →</a>
+      </div>
+      <div class="menu-item reveal">
+        <div class="row"><h3>The Dev Journey</h3><div class="leader"></div><span class="tag">IN PROGRESS</span></div>
+        <p>Learning fullstack development in public — the wins, the bugs, and everything between.</p>
+        <a class="go" href="#vip">Follow the progress →</a>
+      </div>
     </div>
   </div>
-  <p style="color:var(--muted);font-size:0.9rem;margin-top:22px;">Orders confirmed within 24 hours of payment.</p>
 </section>
 
-<section class="wrap">
-  <h2>Order Form</h2>
-  <div class="form-embed">
-    <p style="margin:0 0 18px;">Tap below to open the order form.</p>
-    <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeKY-sLIvf-r1Ill2S22w8Kdsc3hTk_E87g6KT0vDbEvRbfLA/viewform" target="_blank" rel="noopener">Open Order Form →</a>
+<section id="reel">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Latest Reel</span>
+      <h2>Straight from the kitchen and the studio</h2>
+    </div>
+    <div class="reel-grid">
+      <div class="reel-item reveal">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/gMbtYoMNDJ4" title="Latest video" loading="lazy" allowfullscreen></iframe></div>
+      </div>
+      <div class="reel-item reveal">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/TE52mxbXUCs" title="Latest video" loading="lazy" allowfullscreen></iframe></div>
+      </div>
+      <div class="reel-item reveal">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/pxKAuCy-btQ" title="Latest video" loading="lazy" allowfullscreen></iframe></div>
+      </div>
+      <div class="reel-item reveal">
+        <div class="frame"><iframe src="https://www.youtube.com/embed/4YQQme4vgYo" title="Latest video" loading="lazy" allowfullscreen></iframe></div>
+      </div>
+    </div>
   </div>
-  <div class="contact-row">
-    <a class="btn btn-primary" href="mailto:aaronbenjaminco@gmail.com?subject=Order%20Inquiry">Email an order instead</a>
-    <a class="btn btn-ghost" href="/">Back to site</a>
+</section>
+
+<section id="work-with-me">
+  <div class="wrap">
+    <div class="work-grid">
+      <div class="reveal">
+        <span class="eyebrow">Work With Me</span>
+        <h2>Food · Music · Lifestyle · Content</h2>
+        <div class="work-copy">
+          <p>I partner with brands across food, music, and lifestyle for sponsored content, recipe collabs, and product placement — on video, in the feed, and in the inbox.</p>
+          <p>Want to talk collab, sponsorship, or an event booking? Reach out directly.</p>
+          <a class="btn btn-primary" href="mailto:aaronbenjaminco@gmail.com?subject=Let's%20work%20together">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="vip">
+  <div class="wrap">
+    <div class="vip reveal">
+      <div>
+        <h2>Join the Cobbler Club</h2>
+        <p>First access to weekly drops, new flavors, discounts, and Chef Boy A.B. events — straight to your inbox.</p>
+      </div>
+      <form class="signup" action="https://abenja.us22.list-manage.com/subscribe/post?u=569ebfc2c406a32b6df78f9c9&id=e787b5154c&f_id=0058c2e1f0" method="post" name="mc-embedded-subscribe-form" novalidate>
+        <label for="email" class="visually-hidden" style="position:absolute;left:-9999px;">Email address</label>
+        <input id="email" type="email" name="EMAIL" placeholder="you@email.com" required>
+        <div aria-hidden="true" style="position:absolute;left:-5000px;">
+          <input type="text" name="b_569ebfc2c406a32b6df78f9c9_e787b5154c" tabindex="-1" value="">
+        </div>
+        <button type="submit" name="subscribe" class="btn btn-primary">Subscribe</button>
+        <a href="/order.html" class="btn btn-primary">🍑 Buy Now</a>
+      </form>
+    </div>
   </div>
 </section>
 
 <footer>
-  <div class="footer-note">© 2026 Aaron Benjamin Lewis — Chef Boy A.B.</div>
+  <div class="wrap footer-grid">
+    <div class="social-row">
+      <a href="https://www.instagram.com/chefboyab600/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.youtube.com/@chefboyab" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://twitter.com/chefboyab" target="_blank" rel="noopener">X</a>
+      <a href="https://music.apple.com/us/artist/chef-boy-ab/939100399" target="_blank" rel="noopener">Apple Music</a>
+    </div>
+    <div class="footer-note">© 2026 Aaron Benjamin Lewis — Chef Boy A.B. · Thanks for stopping by.</div>
+  </div>
 </footer>
 
+<script>
+  const items = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.15});
+  items.forEach(i=>io.observe(i));
+
+  const navToggle = document.getElementById('navToggle');
+  const navlinks = document.getElementById('navlinks');
+  navToggle.addEventListener('click', ()=>{
+    const isOpen = navlinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen);
+    navToggle.textContent = isOpen ? '✕' : '☰';
+  });
+  navlinks.querySelectorAll('a').forEach(link=>{
+    link.addEventListener('click', ()=>{
+      navlinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.textContent = '☰';
+    });
+  });
+</script>
+
+<script async src="https://www.tiktok.com/embed.js"></script>
 </body>
 </html>
