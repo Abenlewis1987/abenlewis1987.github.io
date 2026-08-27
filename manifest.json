@@ -1,0 +1,29 @@
+{
+  "name": "Chef Boy A.B.",
+  "short_name": "Chef Boy A.B.",
+  "description": "Aaron Benjamin Lewis — Chef Boy A.B. Peach cobbler, music, content, and the dev journey.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d0d0d",
+  "theme_color": "#0d0d0d",
+  "icons": [
+    {
+      "src": "https://abenlewis1987.github.io/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "https://abenlewis1987.github.io/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "https://abenlewis1987.github.io/apple-touch-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
