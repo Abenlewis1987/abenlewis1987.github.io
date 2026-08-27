@@ -50,12 +50,10 @@
   img{max-width:100%;display:block;}
   .wrap{max-width:1080px;margin:0 auto;padding:0 24px;}
 
-  /* reduced motion */
   @media (prefers-reduced-motion: reduce){
     *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
   }
 
-  /* ---------- NAV ---------- */
   nav{
     position:sticky;top:0;z-index:50;
     background:rgba(26,21,18,0.9);
@@ -101,7 +99,6 @@
     .nav-toggle{display:inline-block;}
   }
 
-  /* ---------- HERO ---------- */
   header.hero{
     padding:72px 0 40px;
     position:relative;
@@ -175,7 +172,6 @@
     .ticket{padding:32px 24px;}
   }
 
-  /* ---------- SECTION SHELL ---------- */
   section{padding:64px 0;border-top:1px solid var(--line);}
   .section-head{margin-bottom:34px;max-width:60ch;}
   .section-head .eyebrow{margin-bottom:8px;}
@@ -185,7 +181,6 @@
   .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
   .reveal.in{opacity:1;transform:translateY(0);}
 
-  /* ---------- MENU ---------- */
   .menu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
   @media (max-width:700px){.menu-grid{grid-template-columns:1fr;}}
   .menu-item{
@@ -210,7 +205,6 @@
   }
   .menu-item .go:hover{border-color:var(--gold);}
 
-  /* ---------- REEL ---------- */
   .reel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
   @media (max-width:800px){.reel-grid{grid-template-columns:1fr;}}
   .reel-item{
@@ -230,7 +224,6 @@
   }
   .tiktok-follow-note{color:var(--muted);font-size:0.9rem;text-align:center;}
 
-  /* ---------- RECEIPT / STATS ---------- */
   .receipt{
     background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
     max-width:480px;padding:34px 34px 24px;
@@ -254,7 +247,6 @@
   .work-copy p{color:var(--muted);margin-top:14px;}
   .work-copy .btn{margin-top:22px;}
 
-  /* ---------- DONATE ---------- */
   .donate-card{
     background:linear-gradient(135deg, var(--card-hi), var(--card));
     border:1px solid var(--gold);border-radius:var(--radius);
@@ -264,7 +256,6 @@
   .donate-card p{color:var(--muted);margin-top:14px;font-size:0.98rem;line-height:1.6;}
   .donate-card .btn{margin-top:24px;}
 
-  /* ---------- VIP LIST ---------- */
   .vip{
     background:linear-gradient(135deg, var(--card-hi), var(--card));
     border:1px solid var(--line);border-radius:var(--radius);
@@ -281,7 +272,6 @@
   form.signup input[type=email]:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
   form.signup button{font-family:inherit;}
 
-  /* ---------- FOOTER ---------- */
   footer{padding:48px 0 60px;border-top:1px solid var(--line);}
   .footer-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
   .social-row{display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
@@ -297,10 +287,6 @@
 </style>
 </head>
 <body>
-
-<div id="splashScreen" style="display:none;position:fixed;inset:0;z-index:9999;background:#0d0d0d;align-items:center;justify-content:center;transition:opacity 0.4s ease;">
-  <img src="https://abenlewis1987.github.io/favicon-512x512.png" alt="Chef Boy A.B." style="max-width:80%;max-height:80%;object-fit:contain;">
-</div>
 
 <nav>
   <div class="wrap">
@@ -517,19 +503,6 @@
     if (backBtn) {
       backBtn.style.display = 'inline-flex';
       backBtn.addEventListener('click', ()=> window.history.back());
-    }
-  }
-
-  // --- Splash screen (standalone/home-screen mode only, first load only) ---
-  if (isStandalone && !sessionStorage.getItem('splashShown')) {
-    const splash = document.getElementById('splashScreen');
-    if (splash) {
-      splash.style.display = 'flex';
-      sessionStorage.setItem('splashShown', 'true');
-      setTimeout(()=>{
-        splash.style.opacity = '0';
-        setTimeout(()=> splash.style.display = 'none', 400);
-      }, 1200);
     }
   }
 </script>
