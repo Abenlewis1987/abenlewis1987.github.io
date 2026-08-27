@@ -80,6 +80,11 @@
     transition:color .2s, border-color .2s;
   }
   .navlinks a:hover, .navlinks a:focus-visible{color:var(--gold);border-color:var(--gold);}
+  .app-back-btn{
+    background:none;border:1px solid var(--line);border-radius:8px;
+    padding:8px 12px;color:var(--cream);font-size:1.1rem;cursor:pointer;margin-right:12px;
+  }
+  .app-back-btn:hover{border-color:var(--gold);color:var(--gold);}
   .nav-toggle{
     display:none;background:none;border:1px solid var(--line);border-radius:8px;
     padding:8px 10px;color:var(--cream);font-size:1.1rem;cursor:pointer;
@@ -295,6 +300,7 @@
 
 <nav>
   <div class="wrap">
+    <button class="app-back-btn" id="appBackBtn" aria-label="Go back" style="display:none;">←</button>
     <div class="brand">CHEF BOY A.B.<span class="dot">.</span></div>
     <div class="navlinks" id="navlinks">
       <a href="#menu">The Menu</a>
@@ -499,6 +505,16 @@
       navToggle.textContent = '☰';
     });
   });
+
+  // --- App back button (standalone/home-screen mode only) ---
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  if (isStandalone && window.history.length > 1) {
+    const backBtn = document.getElementById('appBackBtn');
+    if (backBtn) {
+      backBtn.style.display = 'inline-flex';
+      backBtn.addEventListener('click', ()=> window.history.back());
+    }
+  }
 </script>
 
 <script async src="https://www.tiktok.com/embed.js"></script>
