@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <style>
   :root{
     --bg:#0d0d0d;
@@ -265,12 +266,13 @@
   /* ---------- FOOTER ---------- */
   footer{padding:48px 0 60px;border-top:1px solid var(--line);}
   .footer-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:center;}
-  .social-row{display:flex;gap:18px;flex-wrap:wrap;}
+  .social-row{display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
   .social-row a{
     text-decoration:none;color:var(--muted);font-size:0.9rem;
     border-bottom:1px solid transparent;
+    display:inline-flex;align-items:center;
   }
-  .social-row a:hover{color:var(--gold);border-color:var(--gold);}
+  .social-row a:hover{color:var(--gold);border-color:transparent;}
   .footer-note{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--muted);}
 
   :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
@@ -452,9 +454,9 @@
 <footer>
   <div class="wrap footer-grid">
     <div class="social-row">
-      <a href="https://www.instagram.com/chefboyab600/" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://www.youtube.com/@chefboyab" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://twitter.com/chefboyab" target="_blank" rel="noopener">X</a>
+      <a href="https://www.instagram.com/chefboyab600/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram" style="font-size:20px;"></i></a>
+      <a href="https://www.youtube.com/@chefboyab" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube" style="font-size:20px;"></i></a>
+      <a href="https://twitter.com/chefboyab" target="_blank" rel="noopener" aria-label="X"><i class="bi bi-twitter-x" style="font-size:20px;"></i></a>
       <a href="https://music.apple.com/us/artist/chef-boy-ab/939100399" target="_blank" rel="noopener" aria-label="Apple Music"><img src="https://abenlewis1987.github.io/Apple_Music_icon.svg.png" alt="Apple Music" style="height:20px;width:auto;vertical-align:middle;"></a>
     </div>
     <div class="footer-note">© 2026 Aaron Benjamin Lewis — Chef Boy A.B. · Thanks for stopping by.</div>
